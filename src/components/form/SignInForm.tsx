@@ -52,8 +52,8 @@ const SignInForm = () => {
         variant: 'destructive',
       });
     } else {
-      router.refresh();
       router.push('/admin');
+      router.refresh();
     }
   };
 
