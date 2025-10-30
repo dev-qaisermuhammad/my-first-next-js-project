@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { Button, buttonVariants } from './ui/button';
-import { HandMetal } from 'lucide-react';
+import { buttonVariants } from './ui/button';
+// import { Anchor } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import UserAccountnav from './UserAccountnav';
+import Image from 'next/image';
+import logo from '../img/logo.png';
 
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
@@ -11,14 +13,20 @@ const Navbar = async () => {
     <div className=" bg-zinc-100 py-2 border-b border-s-zinc-200 fixed w-full z-10 top-0">
       <div className="container flex items-center justify-between">
         <Link href="/">
-          <HandMetal />
+          {/* <Anchor /> */}
+          <Image src={logo} alt="MyDigiBits" width={40} />
         </Link>
         {session?.user ? (
           <UserAccountnav />
         ) : (
-          <Link className={buttonVariants()} href="/sign-in">
-            Sign in
-          </Link>
+          <div className="flex gap-2">
+            <Link className={buttonVariants()} href="/sign-up">
+              Get Started
+            </Link>
+            <Link className={buttonVariants()} href="/sign-in">
+              Sign in
+            </Link>
+          </div>
         )}
       </div>
     </div>
