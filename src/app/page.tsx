@@ -1,39 +1,14 @@
-// import Navbar from '@/components/Navbar';
-// import { buttonVariants } from '@/components/ui/button';
-// import User from '@/components/User';
-// import { authOptions } from '@/lib/auth';
-// import { getServerSession } from 'next-auth';
-// import Link from 'next/link';
-
 export default async function Home() {
-  // const session = await getServerSession(authOptions);
-
   return (
-    // <div className="flex flex-col items-center justify-center min-h-screen">
-    //   <h1 className="text-4xl">Home</h1>
-    //   {/* <Link className={buttonVariants()} href="/admin">
-    //     Open My Admin
-    //   </Link> */}
-
-    //   {/* <h2>Client Session</h2>
-    //   <User />
-    //   <h2>Server Session</h2>
-    //   {JSON.stringify(session)} */}
-    // </div>
-    <section className="min-h-screen bg-white dark:bg-black">
-      {/* 1. Removed vibrant color gradients. 
-                2. Replaced with soft, neutral gray/white blur effects.
-            */}
+    <section className="min-h-screen bg-white dark:bg-slate-900">
       <div className="absolute top-0 inset-x-0 h-64 flex items-start">
         <div className="h-24 w-2/3 bg-gray-200 opacity-20 blur-2xl dark:bg-gray-800 dark:invisible dark:opacity-40"></div>
         <div className="h-20 w-3/5 bg-gray-300 opacity-40 blur-2xl dark:bg-gray-700 dark:opacity-40"></div>
       </div>
-      {/* 3. Central blur effect changed to a soft white/gray glow.
-       */}
+
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-2/5 aspect-[2/0.5] bg-gradient-to-br from-white to-gray-200 dark:from-gray-900 dark:to-gray-700 rounded-full opacity-50 blur-2xl"></div>
 
-      <div className="relative mx-auto pt-32 pb-24 lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 text-center space-y-10">
-        {/* 4. Heading text adjusted for perfect dark/light mode contrast */}
+      <div className="relative pt-32 pb-24 w-full px-5 sm:px-10 md:px-12 lg:px-5 text-center space-y-10">
         <h1 className="text-black dark:text-white mx-auto max-w-5xl font-bold text-4xl/tight sm:text-5xl/tight lg:text-6xl/tight xl:text-7xl/tight">
           We create, we design, we develop Modern tools.
         </h1>
@@ -55,11 +30,10 @@ export default async function Home() {
           </Link>
         </div> */}
 
-        <div className="text-left grid lg:grid-cols-3 p-6 rounded-2xl bg-gradient-to-tr from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 max-w-2xl lg:max-w-5xl mx-auto lg:divide-x divide-y lg:divide-y-0 divide-gray-300 dark:divide-gray-700">
+        <div className="text-justify grid lg:grid-cols-2 p-6 rounded-3xl bg-gradient-to-tr from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 max-w-2xl lg:max-w-5xl mx-auto lg:divide-x divide-y lg:divide-y-0 divide-gray-300 dark:divide-gray-700">
           {/* Feature 1 */}
           <div className="flex items-start gap-6 lg:pr-6 pb-6 lg:pb-0">
             <div className="w-10">
-              {/* 9. Icon Background and Icon Color updated to neutral */}
               <span className="p-3 rounded-xl bg-gray-200 dark:bg-gray-800 flex w-max text-gray-800 dark:text-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +56,8 @@ export default async function Home() {
                 High Quality
               </h2>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
-                Intuitive and beautiful interfaces that elevate the user
-                experience.
+                Focused on clean code and robust architecture for long-term
+                reliability.
               </p>
             </div>
           </div>
@@ -91,7 +65,6 @@ export default async function Home() {
           {/* Feature 2 */}
           <div className="flex items-start gap-6 lg:px-6 py-6 lg:py-0">
             <div className="w-10">
-              {/* 9. Icon Background and Icon Color updated to neutral */}
               <span className="p-3 rounded-xl bg-gray-200 dark:bg-gray-800 flex w-max text-gray-800 dark:text-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,9 +94,8 @@ export default async function Home() {
           </div>
 
           {/* Feature 3 */}
-          <div className="flex items-start gap-6 pt-6 lg:pt-0 lg:pl-6">
+          {/* <div className="flex items-start gap-6 pt-6 lg:pt-0 lg:pl-6">
             <div className="w-10">
-              {/* 9. Icon Background and Icon Color updated to neutral */}
               <span className="p-3 rounded-xl bg-gray-200 dark:bg-gray-800 flex w-max text-gray-800 dark:text-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +122,7 @@ export default async function Home() {
                 reliability.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

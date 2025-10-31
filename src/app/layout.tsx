@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,13 +21,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} overflow-y-hidden`}>
-        <Provider>
-          <main className="h-screen flex flex-col justify-center items-center min-h-screen">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={true}
+          storageKey="dashboard-theme"
+        >
+          <Provider>
             <Navbar />
-            {children}
-          </main>
-          <Toaster />
-        </Provider>
+            <main className="flex flex-col min-h-screen w-full">
+              {children}
+            </main>
+            <Toaster />
+          </Provider>
+        </ThemeProvider>
       </body>
     </html>
   );

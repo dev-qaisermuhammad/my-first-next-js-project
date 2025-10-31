@@ -3,7 +3,7 @@
 import { signOut } from 'next-auth/react';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { User } from 'lucide-react';
+import { LogOut, User } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,8 +12,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useState } from 'react';
-import { Spinner } from './ui/spinner';
+// import { useState } from 'react';
+// import { Spinner } from './ui/spinner';
+import Link from 'next/link';
+import ThemeToggler from '@/components/ThemeToggler';
 
 const UserAccountnav = () => {
   // const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -35,40 +37,49 @@ const UserAccountnav = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <DropdownMenu>
-        <DropdownMenuTrigger>
-          <Avatar>
-            <AvatarImage
-              src="https://github.com/evilrabbit.png"
-              alt="@evilrabbit"
-            />
-            <AvatarFallback>
-              <User />
-            </AvatarFallback>
-          </Avatar>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>
-            <Button
-              // disabled={isLoading}
-              onClick={() =>
-                signOut({
-                  redirect: true,
-                  callbackUrl: `${window.location.origin}/sign-in`,
-                })
-              }
-              // variant="outline"
-              // onClick={sOut}
-            >
-              {/* {isLoading && <Spinner />} */}
-              Sign Out
-            </Button>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="flex items-center">
+        <ThemeToggler />
+        <DropdownMenu>
+          <DropdownMenuTrigger className="focus:outline-none">
+            <Avatar>
+              <AvatarImage
+                src="https://github.com/evilrabbit.png"
+                alt="@evilrabbit"
+              />
+              <AvatarFallback>
+                <User />
+              </AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link href="/admin">Dashboard</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/admin">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Button
+                // disabled={isLoading}
+                onClick={() =>
+                  signOut({
+                    redirect: true,
+                    callbackUrl: `${window.location.origin}/sign-in`,
+                  })
+                }
+                // variant="destructive"
+                // onClick={sOut}
+              >
+                {/* {isLoading && <Spinner />} */}
+                <LogOut />
+                Sign Out
+              </Button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </div>
   );
 };
